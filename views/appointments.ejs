@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments</title>
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <%- include('sidebar.ejs') %>
+  
+
+  <!-- Main Content -->
+  <div class="main-content" style="margin-left:250px; padding:20px;">
+    <h2 class="mb-4 text-primary">Appointments</h2>
+
+    <!-- Add Appointment Form -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header bg-primary text-white">
+        Schedule New Appointment
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label for="patient" class="form-label">Patient Name</label>
+              <input type="text" class="form-control" id="patient" placeholder="Enter patient name" required>
+            </div>
+            <div class="col-md-4">
+              <label for="doctor" class="form-label">Doctor</label>
+              <input type="text" class="form-control" id="doctor" placeholder="Enter doctor name" required>
+            </div>
+            <div class="col-md-4">
+              <label for="date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="date" required>
+            </div>
+            <div class="col-md-4">
+              <label for="time" class="form-label">Time</label>
+              <input type="time" class="form-control" id="time" required>
+            </div>
+            <div class="col-md-4">
+              <label for="department" class="form-label">Department</label>
+              <select class="form-select" id="department" required>
+                <option selected disabled>Select Department</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Orthopedics</option>
+                <option>Pediatrics</option>
+              </select>
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+              <button type="submit" class="btn btn-primary w-100">Add Appointment</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Appointments Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead>
+          <tr class="table-primary">
+            <th>#ID</th>
+            <th>Patient Name</th>
+            <th>Doctor</th>
+            <th>Department</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A001</td>
+            <td>John Doe</td>
+            <td>Dr. Smith</td>
+            <td>Cardiology</td>
+            <td>2025-10-13</td>
+            <td>10:00 AM</td>
+            <td><span class="badge bg-success">Confirmed</span></td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>A002</td>
+            <td>Jane Smith</td>
+            <td>Dr. Lee</td>
+            <td>Neurology</td>
+            <td>2025-10-14</td>
+            <td>11:30 AM</td>
+            <td><span class="badge bg-warning text-dark">Pending</span></td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>A003</td>
+            <td>Michael Lee</td>
+            <td>Dr. Clark</td>
+            <td>Orthopedics</td>
+            <td>2025-10-15</td>
+            <td>02:00 PM</td>
+            <td><span class="badge bg-danger">Cancelled</span></td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-4 text-center text-muted">
+      <p>© 2025 Hospital Management System. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+ </body>
+</html>

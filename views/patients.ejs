@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient List</title>
+
+    <!-- Sidebar -->
+  <%- include('sidebar.ejs') %>
+</head>
+<body>
+
+  <!-- Main Content -->
+  <div class="main-content" style="margin-left:250px; padding:20px;">
+    <h2 class="mb-4 text-primary">Patient List</h2>
+
+    <!-- Search Bar -->
+    <div class="mb-3" style="max-width:400px;">
+      <input type="text" class="form-control" placeholder="Search patient by name or ID...">
+    </div>
+
+    <!-- Patient Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead>
+          <tr class="table-primary">
+            <th>#ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P001</td>
+            <td>John Doe</td>
+            <td>45</td>
+            <td>Male</td>
+            <td>+1 555 123 456</td>
+            <td>123 Main St, New York</td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>P002</td>
+            <td>Jane Smith</td>
+            <td>38</td>
+            <td>Female</td>
+            <td>+1 555 987 654</td>
+            <td>456 Elm St, Los Angeles</td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+          <tr>
+            <td>P003</td>
+            <td>Michael Lee</td>
+            <td>29</td>
+            <td>Male</td>
+            <td>+1 555 111 222</td>
+            <td>789 Pine St, Chicago</td>
+            <td>
+              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-4 text-center text-muted">
+      <p>© 2025 Hospital Management System. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <%- include('sidebar.ejs') %>
+
+  <!-- Main Content -->
+  <div class="main-content" style="margin-left:250px; padding:20px;">
+    <h2 class="mb-4 text-primary">Profile</h2>
+
+    <div class="row">
+      <!-- Profile Picture -->
+      <div class="col-md-4 text-center">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <img src="./image.png"/>
+            <h4>Admin User</h4>
+            <p class="text-muted">Administrator</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Details -->
+      <div class="col-md-8">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-primary text-white">
+            Profile Details
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" value="admin" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" value="admin@example.com" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" value="+1 555 123 456" required>
+              </div>
+              <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <input type="text" class="form-control" id="role" value="Administrator" readonly>
+              </div>
+              <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-4 text-center text-muted">
+      <p>© 2025 Hospital Management System. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+ </body>
+</html>
