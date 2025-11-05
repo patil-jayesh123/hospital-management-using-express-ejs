@@ -189,4 +189,3 @@ app.listen(PORT, HOST, () => {
 });
 
 
-module.exports = app; // ✅ Vercel ke liye zaruri
