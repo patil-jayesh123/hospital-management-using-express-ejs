@@ -5,15 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appointments</title>
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+    }
+
+    /* Sidebar space for large screens */
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .main-content {
+        margin-left: 0;
+        padding: 15px;
+      }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Sidebar -->
   <%- include('sidebar.ejs') %>
-  
 
   <!-- Main Content -->
-  <div class="main-content" style="margin-left:250px; padding:20px;">
-    <h2 class="mb-4 text-primary">Appointments</h2>
+  <div class="main-content">
+    <h2 class="mb-4 text-primary text-center text-md-start">Appointments</h2>
 
     <!-- Add Appointment Form -->
     <div class="card mb-4 shadow-sm">
@@ -23,23 +54,23 @@
       <div class="card-body">
         <form>
           <div class="row g-3">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
               <label for="patient" class="form-label">Patient Name</label>
               <input type="text" class="form-control" id="patient" placeholder="Enter patient name" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
               <label for="doctor" class="form-label">Doctor</label>
               <input type="text" class="form-control" id="doctor" placeholder="Enter doctor name" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
               <label for="date" class="form-label">Date</label>
               <input type="date" class="form-control" id="date" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
               <label for="time" class="form-label">Time</label>
               <input type="time" class="form-control" id="time" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
               <label for="department" class="form-label">Department</label>
               <select class="form-select" id="department" required>
                 <option selected disabled>Select Department</option>
@@ -49,7 +80,7 @@
                 <option>Pediatrics</option>
               </select>
             </div>
-            <div class="col-md-4 d-flex align-items-end">
+            <div class="col-md-4 col-sm-6 d-flex align-items-end">
               <button type="submit" class="btn btn-primary w-100">Add Appointment</button>
             </div>
           </div>
@@ -58,10 +89,10 @@
     </div>
 
     <!-- Appointments Table -->
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover align-middle">
+    <div class="table-responsive shadow-sm">
+      <table class="table table-bordered table-hover align-middle mb-0">
         <thead>
-          <tr class="table-primary">
+          <tr class="table-primary text-center">
             <th>#ID</th>
             <th>Patient Name</th>
             <th>Doctor</th>
@@ -81,8 +112,8 @@
             <td>2025-10-13</td>
             <td>10:00 AM</td>
             <td><span class="badge bg-success">Confirmed</span></td>
-            <td>
-              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary me-1"><i class="bi bi-pencil-fill"></i></button>
               <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
             </td>
           </tr>
@@ -94,8 +125,8 @@
             <td>2025-10-14</td>
             <td>11:30 AM</td>
             <td><span class="badge bg-warning text-dark">Pending</span></td>
-            <td>
-              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary me-1"><i class="bi bi-pencil-fill"></i></button>
               <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
             </td>
           </tr>
@@ -107,8 +138,8 @@
             <td>2025-10-15</td>
             <td>02:00 PM</td>
             <td><span class="badge bg-danger">Cancelled</span></td>
-            <td>
-              <button class="btn btn-sm btn-primary"><i class="bi bi-pencil-fill"></i></button>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary me-1"><i class="bi bi-pencil-fill"></i></button>
               <button class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i></button>
             </td>
           </tr>
@@ -117,10 +148,13 @@
     </div>
 
     <!-- Footer -->
-    <footer class="mt-4 text-center text-muted">
-      <p>© 2025 Hospital Management System. All Rights Reserved.</p>
+    <footer class="text-center text-muted">
+      <p class="mt-4 mb-0">© 2025 Hospital Management System. All Rights Reserved.</p>
     </footer>
   </div>
 
- </body>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>

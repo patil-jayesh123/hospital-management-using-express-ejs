@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Bootstrap CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Sidebar</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <style>
-        /* Sidebar */
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    /* Sidebar */
     .sidebar {
       height: 100vh;
       background: linear-gradient(180deg, #0d6efd, #007bff);
@@ -21,6 +29,8 @@
       top: 0;
       left: 0;
       padding-top: 20px;
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
 
     .sidebar h3 {
@@ -45,13 +55,54 @@
     .sidebar i {
       margin-right: 10px;
     }
-    </style>
+
+    /* Content */
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #0d6efd;
+      font-size: 24px;
+      margin: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .sidebar {
+        left: -250px;
+      }
+      .sidebar.active {
+        left: 0;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+      .toggle-btn {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+      }
+    }
+  </style>
 </head>
 <body>
-      <!-- Sidebar -->
-  <div class="sidebar">
+
+  <!-- Toggle Button -->
+  <button class="toggle-btn" id="toggleBtn"><i class="bi bi-list"></i></button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
     <h3><i class="bi bi-hospital"></i> Hospital</h3>
-    <a href="/saveform"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <a href="/dashbord"><i class="bi bi-speedometer2"></i> Dashboard</a>
     <a href="/patients.ejs"><i class="bi bi-person"></i> Patients</a>
     <a href="/doctors.ejs"><i class="bi bi-people"></i> Doctors</a>
     <a href="/appointments.ejs"><i class="bi bi-calendar-check"></i> Appointments</a>
@@ -59,9 +110,23 @@
     <a href="/home.ejs"><i class="bi bi-box-arrow-right"></i> Logout</a>
   </div>
 
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Welcome to Hospital Dashboard</h2>
+    <p>This is your main content area. Resize the window to see the sidebar become responsive.</p>
+  </div>
 
-   <!-- Bootstrap JS -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleBtn");
+    const sidebar = document.getElementById("sidebar");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  </script>
 
 </body>
 </html>
