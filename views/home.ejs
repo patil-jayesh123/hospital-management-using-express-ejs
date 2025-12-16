@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hospital Management System</title>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     /* Reset */
     * {
@@ -16,6 +21,8 @@
     body {
       line-height: 1.6;
       color: #333;
+      background-color: #f9fafc;
+      scroll-behavior: smooth;
     }
 
     a {
@@ -25,15 +32,21 @@
 
     /* Navbar */
     nav {
-      background-color: #0d6efd;
-      padding: 15px 30px;
+      background: linear-gradient(90deg, #0d6efd, #0a58ca);
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     nav h1 {
       color: white;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     nav ul {
@@ -42,7 +55,7 @@
     }
 
     nav ul li {
-      margin-left: 20px;
+      margin-left: 25px;
     }
 
     nav ul li a {
@@ -53,13 +66,14 @@
 
     nav ul li a:hover {
       text-decoration: underline;
+      color: #cfe2ff;
     }
 
     /* Hero Section */
     .hero {
       background: linear-gradient(rgba(13, 110, 253, 0.7), rgba(13, 110, 253, 0.7)),
         url('https://images.unsplash.com/photo-1588776814546-6e30e6b9d9c5?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-      height: 80vh;
+      height: 85vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -67,58 +81,72 @@
       color: white;
       text-align: center;
       padding: 0 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .hero h2 {
       font-size: 3rem;
       margin-bottom: 20px;
+      font-weight: 600;
     }
 
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 30px;
+      max-width: 700px;
     }
 
     .hero a {
-      background-color: #fff;
+      background: linear-gradient(90deg, #fff, #e3f2fd);
       color: #0d6efd;
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: 0.3s;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
     }
 
     .hero a:hover {
-      background-color: #e0e0e0;
+      background: #fff;
+      transform: scale(1.05);
     }
 
     /* About Section */
     .about {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
       background-color: #f8f9fa;
     }
 
     .about h2 {
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      color: #0d6efd;
     }
 
     .about p {
       max-width: 800px;
       margin: 0 auto;
       font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
     }
 
     /* Services Section */
     .services {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
     .services h2 {
       font-size: 2.5rem;
       margin-bottom: 40px;
+      color: #0d6efd;
     }
 
     .service-cards {
@@ -130,44 +158,59 @@
 
     .card {
       background-color: white;
-      padding: 30px 20px;
-      width: 250px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      padding: 35px 25px;
+      width: 260px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 6px 25px rgba(13, 110, 253, 0.2);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: #0d6efd;
+      margin-bottom: 15px;
     }
 
     .card h3 {
       margin-bottom: 15px;
       color: #0d6efd;
+      font-weight: 600;
     }
 
     .card p {
       font-size: 0.95rem;
+      color: #555;
     }
 
     /* Footer */
     footer {
-      background-color: #0d6efd;
+      background: linear-gradient(90deg, #0d6efd, #0a58ca);
       color: white;
       text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
+      padding: 25px 0;
+      margin-top: 50px;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
       .hero h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .service-cards {
         flex-direction: column;
         align-items: center;
+      }
+
+      .card {
+        width: 80%;
       }
     }
   </style>
@@ -176,24 +219,26 @@
 
   <!-- Navbar -->
   <nav>
-    <h1>HMS</h1>
+    <h1><i class="fa-solid fa-hospital"></i> HMS</h1>
     <ul>
-      <li><a href="/" style="text-decoration: none;">Home</a></li>
-      <li><a href="/login" style="text-decoration: none;">Login</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="/login">Login</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
     <h2>Welcome to Hospital Management System</h2>
-    <p>Providing efficient healthcare management solutions for hospitals and clinics.</p>
-    <a href="">Explore Services</a>
+    <p>Empowering healthcare professionals with smart, efficient, and integrated hospital solutions.</p>
+    <a href="#services">Explore Services</a>
   </section>
 
   <!-- About Section -->
   <section class="about" id="about">
     <h2>About Us</h2>
-    <p>Hospital Management System is designed to simplify hospital operations, manage patient records, appointments, doctors, pharmacy, and generate reports efficiently. Our solution ensures smooth workflow and enhanced patient care for all healthcare facilities.</p>
+    <p>Our Hospital Management System simplifies hospital operations, manages patient records, appointments, pharmacy, billing, and generates insightful analytics. With a focus on innovation and care, we help hospitals deliver better services efficiently and securely.</p>
   </section>
 
   <!-- Services Section -->
@@ -201,27 +246,31 @@
     <h2>Our Services</h2>
     <div class="service-cards">
       <div class="card">
+        <i class="fa-solid fa-user-injured"></i>
         <h3>Patient Management</h3>
-        <p>Efficiently manage patient records, history, and treatment details in one place.</p>
+        <p>Maintain patient records, track medical history, and treatment details seamlessly.</p>
       </div>
       <div class="card">
+        <i class="fa-solid fa-calendar-check"></i>
         <h3>Appointment Scheduling</h3>
-        <p>Quickly schedule, track, and manage appointments for patients and doctors.</p>
+        <p>Book and manage doctor appointments efficiently with real-time tracking.</p>
       </div>
       <div class="card">
+        <i class="fa-solid fa-pills"></i>
         <h3>Pharmacy Management</h3>
-        <p>Track medicine inventory, prescriptions, and supply efficiently.</p>
+        <p>Monitor inventory, manage prescriptions, and ensure timely medicine availability.</p>
       </div>
       <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
         <h3>Reports & Analytics</h3>
-        <p>Generate detailed reports to analyze hospital performance and improve services.</p>
+        <p>Access detailed reports to measure performance and improve hospital operations.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Hospital Management System. All Rights Reserved.</p>
+    <p>© 2025 Hospital Management System | Designed with ❤️ for better healthcare</p>
   </footer>
 
 </body>
